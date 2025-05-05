@@ -55,6 +55,8 @@ class V1 {
 
         QList<ModPlatform::Dependency> dependencies;
 
+        bool lockUpdate;
+
        public:
         // This is a totally heuristic, but should work for now.
         auto isValid() const -> bool { return !slug.isEmpty() && !project_id.isNull(); }

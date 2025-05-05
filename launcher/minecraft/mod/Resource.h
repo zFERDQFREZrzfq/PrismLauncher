@@ -79,6 +79,7 @@ enum class SortType : std::uint8_t {
     Requires,
     RequiredBy,
     Filename,
+    LockUpdate
 };
 
 enum class EnableAction : std::uint8_t { ENABLE, DISABLE, TOGGLE };
@@ -120,6 +121,7 @@ class Resource : public QObject {
     auto metadata() const -> std::shared_ptr<const Metadata::ModStruct> { return m_metadata; }
     auto provider() const -> QString;
     virtual auto homepage() const -> QString;
+    bool lockUpdate() const;
 
     void setStatus(ResourceStatus status) { m_status = status; }
     void setMetadata(std::shared_ptr<Metadata::ModStruct>&& metadata);
